@@ -10,7 +10,7 @@ def get_weather_forecast(city):
     else:
         return "ERROR! Check if you entered the city name correctly, and try again"
 
-# Запит користувача про місто
+
 city = input("Введіть назву міста: ")
 forecast = get_weather_forecast(city)
 print(forecast)
