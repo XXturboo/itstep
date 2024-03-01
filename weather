@@ -1,0 +1,16 @@
+import requests
+
+def get_weather_forecast(city):
+    api_key = "c29b6f472b886fe1828bb02df7b71ebf"
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return f"Погода в місті {city}: {data['weather'][0]['description']}, Температура: {data['main']['temp']}°C"
+    else:
+        return "ERROR! Check if you entered the city name correctly, and try again"
+
+# Запит користувача про місто
+city = input("Введіть назву міста: ")
+forecast = get_weather_forecast(city)
+print(forecast)
